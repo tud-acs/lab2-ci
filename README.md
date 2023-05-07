@@ -178,9 +178,12 @@ An example of profiling your application with Nsight-systems:
 
 After execution, you can find a report file called `report{x}.nsys-rep` in your build folder. Copy this file to your computer and open it with Nsight-systems installed on your computer (CUDA-supported GPUs not required). You should be able to see a detailed visual result like the one below.
 
-![Nsight systems](https://github.com/acstud/lab2/raw/master/images/nsight_sys.png "Example Nsight systems result")
+![Nsight systems](https://raw.githubusercontent.com/tud-acs/lab2-ci/development/images/nsight_sys.png "Example Nsight systems result")
 
 ## Use Github CI to benchmark your code
+For lab2, you can use the Github Runner to benchmark and profile your code by pushing your code to `benchmark` branch. The Nsight system report is available in Artifacts.
+
+<img src="https://raw.githubusercontent.com/tud-acs/lab2-ci/development/images/nsight_result.png" height="800">
 
 
 ## How do I use `nvprof` to profile my application (`nvprof` is deprecated) ?
