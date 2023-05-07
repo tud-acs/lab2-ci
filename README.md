@@ -36,18 +36,19 @@ advantages that will be discussed in the lectures.
 
 One major advantage of CUDA that the toolchain around it is very mature.
 Especially the profiling tool is very useful for this lab. 
-You are expected to use `nvprof` for this lab.
+You are expected to use `nsight-sys` for this lab.
 Also, the CUDA API is a bit more abstract, so it's a bit easier to write
 CUDA code.
 
 ## How do I install CUDA on my own computer?
 
 Even if you don't have an NVIDIA GPU, you can still install the CUDA toolkit.
-This is useful if you want to use the graphical profiling tool `nvprof` and `nsight-sys`.
+This is useful if you want to use the graphical profiling tool `nsight-sys`.
 
 For Ubuntu, you can install CUDA toolkit by `sudo apt install nvidia-cuda-toolkit`.
 
 * [NVIDIA CUDA Toolkit](https://developer.nvidia.com/cuda-toolkit)
+* [NVIDIA Nsight Systems](https://developer.nvidia.com/nsight-systems)
 
 ## Where can I read some getting started / tutorials about CUDA?
 
@@ -65,7 +66,7 @@ If you are in the project directory, you can type:
 ```console
 mkdir debug
 cd debug
-cmake3 ..
+cmake ..
 ```
 
 This will create a build directory, go into that directory, and lets CMake 
@@ -134,28 +135,27 @@ Then, you must:
 
 * Implement the whole image processing pipeline using CUDA.
 
-## When you run your CUDA application on the login node
+## When you run your CUDA application on old GPUs.
 
 You may get some unexpected outcomes, such as:
-- The result from the login node is different from your laptop
 - "cudaErrorNoKernelImageForDevice"
 - The result is obviously wrong.
 
-These errors are caused by the fact that the CUDA compiler is using a higher [compute capabilities](https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#compute-capabilities) than the GPU supports. You can find your GPU model by typing:
+These errors might be caused by the fact that the CUDA compiler is using a higher [compute capabilities](https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#compute-capabilities) than the GPU supports. You can find your GPU model by typing:
 
 ```console
 lspci | grep VGA
 ```
 
-On the login node (e.g. login1.hpc.tudelft.nl), you should find that the GPU model is "Quadro K2200". You can find out that the maximum supported compute capability for the K2200 is 5.0 using this [link](https://developer.nvidia.com/cuda-gpus). The [default compute capability](https://stackoverflow.com/questions/28932864/cuda-compute-capability-requirements) for CUDA 11.x is 5.2, which is a little higher than what the device can support.
+Suppose your GPU model is "Quadro K2200". You can find out that the maximum supported compute capability for the K2200 is 5.0 using this [link](https://developer.nvidia.com/cuda-gpus). The [default compute capability](https://stackoverflow.com/questions/28932864/cuda-compute-capability-requirements) for CUDA 11.x is 5.2, which is a little higher than what the device can support.
 
 So you need to tell the CUDA compiler that you want to use a lower compute capability to compile your code. You can configure this at the cmake stage:
 
 ```console
-cmake3 -DCMAKE_CUDA_FLAGS="-arch=compute_50" ..
+cmake -DCMAKE_CUDA_FLAGS="-arch=compute_50" ..
 ```
 
-Remember to clean your cmake cache before configuring your project.
+Remember to clean your cmake cache before re-configuring your project.
 
 
 ## What will you run to test if I've implemented everything correctly?
@@ -180,15 +180,18 @@ After execution, you can find a report file called `report{x}.nsys-rep` in your 
 
 ![Nsight systems](https://github.com/acstud/lab2/raw/master/images/nsight_sys.png "Example Nsight systems result")
 
-## How do I use `nvprof` to profile my application?
+## Use Github CI to benchmark your code
+
+
+## How do I use `nvprof` to profile my application (`nvprof` is deprecated) ?
 
 For students who do not want to install `Nsight-system` on their computers, you can try an obsolete tool called `nvprof`. Just put `nvprof` in front of your application command.
 
-Example:
+Install nvprof: `sudo apt install nvidia-profiler`
 
-`nvprof ./imgproc-benchmark -a ../images/42.png`
+Example: `nvprof ./imgproc-benchmark -a ../images/42.png`
 
-## I don't like looking at `nvprof` output on the command line. Is there a GUI?
+## I don't like looking at `nvprof` output on the command line. Is there a GUI ?
 
 Yes. It's called the NVIDIA Visual Profiler, or `nvvp` on the command line.
 If you install the toolkit on your laptop, you can use this GUI to visualize the
