@@ -45,7 +45,7 @@ CUDA code.
 Even if you don't have an NVIDIA GPU, you can still install the CUDA toolkit.
 This is useful if you want to use the graphical profiling tool `nsight-sys`.
 
-For Ubuntu, you can install CUDA toolkit by `sudo apt install nvidia-cuda-toolkit`.
+For Ubuntu, you can install the CUDA toolkit by `sudo apt install nvidia-cuda-toolkit`. For Nsight, please download the `.deb` package from the link below.
 
 * [NVIDIA CUDA Toolkit](https://developer.nvidia.com/cuda-toolkit)
 * [NVIDIA Nsight Systems](https://developer.nvidia.com/nsight-systems)
@@ -181,7 +181,9 @@ After execution, you can find a report file called `report{x}.nsys-rep` in your 
 ![Nsight systems](https://raw.githubusercontent.com/tud-acs/lab2-ci/development/images/readme/nsight_sys.png "Example Nsight systems result")
 
 ## Use Github CI to benchmark your code
-For lab2, you can use the Github Runner to benchmark and profile your code by pushing your code to `benchmark` branch. The Nsight system report is available in Artifacts.
+For lab2, you can use the GitHub Runner to benchmark and profile your code by pushing your code to the `benchmark` branch. The Nsight system report is available in Artifacts. Notice that Nsight reports will only be removed after 24 hours because of the storage limitation.
+
+__IMPORTANT__: Delete your Nsight report by clicking the trash bin after downloading it.
 
 <img src="https://raw.githubusercontent.com/tud-acs/lab2-ci/development/images/readme/nsight_result.png" height="800">
 
