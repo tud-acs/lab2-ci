@@ -96,34 +96,46 @@ to make an image look as if it was reflected in rippling water.
 
 It performs the following steps. Suppose we start with the following image:
 
-![Some image](images/42.png)
+<div>
+<img src="https://raw.githubusercontent.com/tud-acs/lab2-ci/development/images/42.png">
+</div>
 
 1. Histogram calculation
     * We count the number of pixels with a specific intensity for each color channel.
     * This is used to determine the parameters for the next step.
 
-![Histogram of some image.](images/readme/42_histogram.png)
+<div>
+<img src="https://raw.githubusercontent.com/tud-acs/lab2-ci/development/images/readme/42_histogram.png">
+</div>
 
 2. Contrast enhancement.
     * We enhance the contrast by making the histogram "wider" for each channel.
     * In this way we get a "clearer" image:
 
-![Contrast enhanced image.](images/readme/42_enhanced.png)
+<div>
+<img src="https://raw.githubusercontent.com/tud-acs/lab2-ci/development/images/readme/42_enhanced.png">
+</div>
 
 * Also look at the resulting histogram:
 
-![Histogram of contrast enhanced image.](images/readme/42_enhanced_histogram.png)
+<div>
+<img src="https://raw.githubusercontent.com/tud-acs/lab2-ci/development/images/readme/42_enhanced_histogram.png">
+</div>
 
 3. Ripple effect.
     * We apply the ripple effect by doing some trigonometry.
 
-![Rippled image.](images/readme/42_rippled.png)
+<div>
+<img src="https://raw.githubusercontent.com/tud-acs/lab2-ci/development/images/readme/42_rippled.png">
+</div>
 
 4. Gaussian blur.
     * Because the ripple effect makes some parts of the image look rather
       jagged, smooth the final image using a Gaussian blur.
 
-![Rippled image.](images/readme/42_blurred.png)
+<div>
+<img src="https://raw.githubusercontent.com/tud-acs/lab2-ci/development/images/readme/42_blurred.png">
+</div>
 
 * That surely looks fancy!    
 
@@ -210,7 +222,7 @@ Example:
 `nvprof --analysis-metrics --output-profile imgproc-benchmark.nvvp ./imgproc-benchmark -a ../images/42.png`
 
 After you've run your application within `nvprof`, you can then copy the file
-to your laptop/desktop and open it in the visual profiler tool. This [presentation](https://github.com/acstud/lab2/blob/master/lectureGPU_lab_updated.pdf) elaborates some more details with examples on using `nvprof`.
+to your laptop/desktop and open it in the visual profiler tool. This [presentation](https://github.com/tud-acs/lab2-ci/blob/development/lectureGPU_lab_updated.pdf) elaborates some more details with examples on using `nvprof`.
 
 ## Which image should I use to profile / discuss my implementations in the report?
 
@@ -224,7 +236,7 @@ Avoid running large images on the login node because the login node is for debug
 
 You can find them here:
 
-[src/students](src/students)
+[src/students](https://github.com/tud-acs/lab2-ci/tree/development/src/students)
 
 ## Can I change any other files?
 
@@ -237,7 +249,7 @@ report why you did so.
 
 ## Is there a template for the lab report?
 
-Yes. This is a [the LaTeX template](report/template.tex) and it is actually
+Yes. This is a [the LaTeX template](https://github.com/tud-acs/lab2-ci/blob/development/report/template.tex) and it is actually
 __mandatory__ to use this template.
 
 ## Credits
