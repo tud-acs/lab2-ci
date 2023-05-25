@@ -1,4 +1,4 @@
-# Advanced Computing Systems 2022-2023 Lab 2 - CUDA
+# Advanced Computing Systems 2023-2024 Lab 2 - CUDA
 
 This repository contains all files and explanations needed to perform
 the second lab of the CESE4010 - Advanced Computing Systems course at the
