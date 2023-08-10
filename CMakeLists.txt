@@ -18,8 +18,7 @@ set(DEFAULT_SOURCES
 
         src/imgproc-benchmark.cpp)
 
-include(CheckLanguage)
-check_language(CUDA)
+enable_language(CUDA)
 
 if (CMAKE_CUDA_COMPILER)
     message("[ACS LAB] CUDA is supported. Enabling CUDA sources.")
