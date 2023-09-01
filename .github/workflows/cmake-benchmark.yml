@@ -26,11 +26,14 @@ jobs:
     - name: Build
       run: |
         module load cuda/10.2
-        module load devtoolset/11
+        module load devtoolset/8
         cmake3 --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 8
       
     - name: Print GPU model
       run: nvidia-smi --query-gpu=gpu_name --format=csv
+
+    - name: Print nvidia-smi
+      run: nvidia-smi
 
     - name: Nsight-System profile
       working-directory: ${{github.workspace}}/build
